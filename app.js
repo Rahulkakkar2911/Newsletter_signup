@@ -50,20 +50,31 @@ app.post('/' , function(req,res){
     const request = https.request(url,options, function(response){
         response.on("data" , function(data){
         console.log(JSON.parse(data));
+        if (response.statusCode === 200) {
+            res.sendFile(__dirname + "/success.html");    
+        }
+        else{
+            
+                res.sendFile(__dirname + "/failure.html")
+            
+             }
+        
         })
     })
     request.write(jsonData);
     request.end();
+    
 })
+app.post("/failure", function(req,res){
+    res.redirect("/");
+    res.end;
+})
+
+
+
 
 
 app.listen(3000, function(){
     console.log("Server is running on Port 3000");
 })
 
-
-// List ID
-// 948d3481a3
-
-// Api Id
-// 2a302ca22ff628d39768e37576f4ac28-us7

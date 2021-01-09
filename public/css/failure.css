@@ -1,0 +1,11 @@
+.bgclr
+{
+    background-color: rgb(216, 216, 216);
+}
+.fnt-set {
+    font-weight: 500;
+    margin: 20px;
+}
+.box-set {
+    padding: 40px;
+}
