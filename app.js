@@ -41,15 +41,14 @@ app.post('/' , function(req,res){
         ]
     };
     const jsonData = JSON.stringify(data);
-    const url = "https://us7.api.mailchimp.com/3.0/lists/948d3481a3"
+    const url = "https://us7.api.mailchimp.com/3.0/lists/{ListID}"
     const options = {
         method: "POST",
-        auth: "rahul1:2a302ca22ff628d39768e37576f4ac28-us7"
+        auth: "anyname:apikey"
     }
 
     const request = https.request(url,options, function(response){
         response.on("data" , function(data){
-        console.log(JSON.parse(data));
         if (response.statusCode === 200) {
             res.sendFile(__dirname + "/success.html");    
         }
