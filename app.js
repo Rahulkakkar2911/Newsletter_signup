@@ -8,7 +8,6 @@ const list_id = process.env.List_id;
 
 const app = express();
 // to use static files
-
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
@@ -43,11 +42,10 @@ app.post('/' , function(req,res){
         ]
     };
     const jsonData = JSON.stringify(data);
-    const url = "https://us7.api.mailchimp.com/3.0/lists/" +  list_id.toString();
+    const url = "https://us7.api.mailchimp.com/3.0/lists/" +  list_id;
     const options = {
         method: "POST",
-        auth: "rahul:" + api_key.toString()
-        
+        auth: "rahul:" + api_key
     }
     const request = https.request(url,options, function(response){
         response.on("data" , function(data){
